@@ -1,4 +1,4 @@
-# WebApplication2
+# CMPE-363 Final Project
 
 ## The problem
 
