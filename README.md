@@ -23,7 +23,7 @@ The translation is the core of our web application. We used the Translator from 
 
 ### Speech
 
-To hear how the translated word/sentence sounds we added Speech from Cognitive Services to our app. We went with the RESP-API option. First, we get the Authorization Token which includes the 64 Bytes Bearer code. This header is required in the request. In the body part we put our xml which defines the language and the voice of the speaker. We also add here the text we want to be spoken. As a response we get a .wav file, which we include in our basic audio player.
+To hear how the translated word/sentence sounds we added Speech from Cognitive Services to our app. We went with the REST-API option. First, we get the Authorization Token which includes the 64 Bytes Bearer code. This header is required in the request. In the body part we put our xml which defines the language and the voice of the speaker. We also add here the text we want to be spoken. As a response we get a .wav file, which we include in our basic audio player.
 
 ### Computer Vision
 
@@ -32,3 +32,13 @@ We also added the functionality to upload images and recognize the text in those
 ### Azure SQL
 
 We used Azure SQL to save user information. It is possible for users to register on our application with username, password and the preferred language. The registration makes us set the language we want to translate from to the preferred language of the user. Also, the user can see how often the translation and speech services were used.
+
+### Fault Tolerance
+For fault tolerance, we used scale out in the app service plan, as load balancers are for VMs, and we do not have a VM. We chose custom auto scale, which has minimum 1 instance, maximum 10 and as default 3. In addition, we have created a rule that creates an instance when the CPU load is over 70%.
+
+### Firewall
+In addition, we have created a web application firewall (WAF). For the managed rules we used the Microsoft_DefaultRuleSet.
+
+### Front Door
+So that we can use the firewall, we have also created a front door.
+
