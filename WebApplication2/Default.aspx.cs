@@ -28,8 +28,6 @@ namespace WebApplication2
 {
     public partial class Default : System.Web.UI.Page
     {
-        private static readonly string key = "1915c0e5c5e241399644214d21effbc6";
-        private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
         private string connectionString = "Server=tcp:team9-server.database.windows.net,1433;Initial Catalog=team9;Persist Security Info=False;User ID=sqladmin;Password=Team9Sql;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         // location, also known as region.
@@ -171,6 +169,10 @@ namespace WebApplication2
 
         private async void Translate()
         {
+
+            string key = "1915c0e5c5e241399644214d21effbc6";
+            string endpoint = "https://api.cognitive.microsofttranslator.com";
+
             // Input and output languages are defined as parameters.
             string from = DropDownList1.SelectedValue;
             string to = DropDownList2.SelectedValue;
